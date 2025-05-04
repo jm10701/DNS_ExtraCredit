@@ -87,14 +87,14 @@ def dns_query(type, name, server):
     # Encode the QTYPE and QCLASS
 
     if type == 'A':
-        qtype = 'A'.encode('utf-8')     # Lookup the Resource Record value
+        qtype = 1     # Lookup the Resource Record value
     elif type == 'AAAA':
-        qtype = 'AAAA'.encode('utf-8')    # Lookup the Resource Record value
+        qtype = 28    # Lookup the Resource Record value
     else:
         raise ValueError('Invalid type')
     
 
-    qclass = 'IN'.encode('utf-8')      # Lookup the Resource Record class being requested
+    qclass = 1    # Lookup the Resource Record class being requested
 
         # This is the query we are asking the DNS Server
     question = qname_encoded + struct.pack('!HH', qtype, qclass)
